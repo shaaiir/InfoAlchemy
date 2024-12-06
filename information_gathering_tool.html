@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info.io</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden; 
+            cursor: none; 
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 2; 
+        }
+        h1 {
+            margin: 0;
+            font-weight: 600; 
+        }
+        h2 {
+            position: absolute;
+            left: 50px; 
+            top: 70px; 
+            transform: translateY(-50%); 
+            font-weight: 500; 
+            font-size: 30px;
+        }
+        h5 {
+            position: absolute;
+            left: 50px; 
+            top: 270px; 
+            transform: translateY(-50%); 
+            font-weight: 400; 
+            font-size: 15px;
+        }
+        .navbar {
+            display: flex;
+        }
+        .navbar h3 {
+            margin: 0 15px;
+            cursor: pointer; 
+            font-weight: 200;
+            transition: transform 0.3s ease, opacity 0.3s ease; 
+        }
+        .navbar h3:hover {
+            animation: blink-animation 0.5s forwards; 
+            transform: scale(1.50); 
+        }
+        @keyframes blink-animation {
+            0%, 100% {
+                opacity: 1;
+                color: #333; 
+            }
+            50% {
+                opacity: 0; 
+                color: #d3e8e8; 
+            }
+        }
+        /* Main content */
+        .content {
+            position: absolute;
+            width: 300%; 
+            height: 100vh;
+            display: flex; 
+            transition: transform 0.5s ease; 
+            left: 0; 
+        }
+        .section {
+            width: 100vw;
+            height: 100vh; 
+            position: relative; 
+        }
+        .tools{
+            display: flex;
+        }
+      /* Bottom-to-top wave */
+./* Bottom wave */
+.wave {
+    position: absolute;
+    bottom: 0; /* Align to the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset to truly center */
+    width: 100vw; /* Extend beyond the viewport for a larger wave */
+    height: 650px; /* Adjust height for a moderate wave */
+    background: #d3e8e8; /* Wave color */
+    animation: wave-animation 15s infinite linear; /* Adjusted animation speed */
+    z-index: 0; /* Below the header */
+}
+
+@keyframes wave-animation {
+    0% {
+        clip-path: path("M0 600 Q150 570, 300 600 T600 600 T900 650 T1200 600 T1500 550 T1800 600 V600 H0 V0");
+    }
+    25% {
+        clip-path: path("M0 600 Q150 580, 300 620 T600 580 T900 620 T1200 580 T1500 620 T1800 600 V600 H0 V0");
+    }
+    50% {
+        clip-path: path("M0 600 Q150 590, 300 610 T600 590 T900 610 T1200 590 T1500 610 T1800 590 V600 H0 V0");
+    }
+    75% {
+        clip-path: path("M0 600 Q150 580, 300 620 T600 580 T900 620 T1200 580 T1500 620 T1800 600 V600 H0 V0");
+    }
+    100% {
+        clip-path: path("M0 600 Q150 570, 300 600 T600 600 T900 650 T1200 600 T1500 550 T1800 600 V600 H0 V0");
+    }
+}
+
+/* Top wave */
+.wave-top {
+    position: absolute;
+    top: 0; /* Align to the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset to truly center */
+    width: 100vw; /* Extend beyond the viewport for a larger wave */
+    height: 300px; /* Match height of bottom wave */
+    background: #d3e8e8; /* Wave color */
+    animation: wave-animation-top 15s infinite linear; /* Adjusted animation speed */
+    z-index: 0; /* Below the header */
+}
+
+@keyframes wave-animation-top {
+    0% {
+        clip-path: path("M0 150 Q150 100, 300 150 T600 150 T900 120 T1200 150 T1500 130 T1800 150 V0 H0 V150");
+    }
+    25% {
+        clip-path: path("M0 150 Q150 130, 300 170 T600 130 T900 170 T1200 130 T1500 170 T1800 130 V0 H0 V150");
+    }
+    50% {
+        clip-path: path("M0 150 Q150 150, 300 130 T600 150 T900 130 T1200 150 T1500 130 T1800 150 V0 H0 V150");
+    }
+    75% {
+        clip-path: path("M0 150 Q150 130, 300 170 T600 130 T900 170 T1200 130 T1500 170 T1800 130 V0 H0 V150");
+    }
+    100% {
+        clip-path: path("M0 150 Q150 100, 300 150 T600 150 T900 120 T1200 150 T1500 130 T1800 150 V0 H0 V150");
+    }
+}
+
+        .image {
+            position: absolute;
+            right: 100px;
+            top: 400px; 
+            transform: translateY(-50%); 
+            z-index: 3;
+        }
+        img {
+            max-width: 400px;
+            height: 300px; 
+        }
+    
+                /* Logo Style for Tools Section */
+        .tools-logo {
+            max-width: 100px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Center the logo */
+            position: absolute; /* Absolute positioning */
+            z-index: 2; /* Make sure it's above the waves */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+        #results-container {
+    position: absolute; /* Ensure results are above the wave */
+    z-index: 6; /* Bring results in front of wave */
+    margin-top: 2rem;
+    margin-left: 25rem;
+    padding: 10px; /* Add some padding */
+    border: 1px solid #ddd; /* Optional: add a border */
+    border-radius: 5px; /* Optional: rounded corners */
+    background: #ffffff; /* Background color */
+    max-height: 80vh; /* Limit the height to 80% of the viewport */
+    max-width: 80vh;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto; /* Hide horizontal overflow */
+}
+/* Search Input Field Style */
+#search-container,
+#domain-search-container,
+#phone-search-container {
+    z-index: 6; /* Ensure it's above the results */
+}
+
+
+.result-item strong {
+    color: #333;
+}
+
+
+
+        .tools-logo.ip-address {
+            left: 70px; /* Position on the left */
+            top: 80px; /* Adjust as needed */
+        }
+
+        .tools-logo.domain {
+            right: 70px; /* Position on the right */
+            top: 80px; /* Adjust as needed */
+        }
+
+        .tools-logo.phone {
+            left: 70px; /* Position for phone scan */
+            bottom: 100px; /* Position from the bottom */
+        }
+
+        /* Quote Style */
+        .quote {
+            position: absolute;
+            left: 50px; 
+            top: 300px; 
+            transform: translateY(-50%); 
+            font-weight: 300; 
+            font-size: 25px; 
+            color: #333; 
+            z-index: 3; 
+            max-width: 400px; 
+        }
+
+        /* Search Input Field Style */
+        #search-container {
+            position: relative;
+            left: 170px; /* Center horizontally */
+            top: 200px; /* Adjust to position under the IP logo */
+            transform: translateX(-50%); /* Offset to truly center */
+            z-index: 4; /* Ensure it's above the waves */
+            display: none; /* Initially hidden */
+        }
+
+        #domain-search-container {
+            position: absolute;
+            right: 190px; /* Center horizontally for domain search */
+            top: 200px; /* Position under Domain logo */
+            transform: translateX(50%); /* Offset to truly center */
+            z-index: 4; /* Ensure it's above the waves */
+            display: none; /* Initially hidden */
+        }
+
+        #phone-search-container {
+            position: absolute;
+            left: 170px; /* Center horizontally for phone search */
+            bottom: 220px; /* Position above the bottom */
+            transform: translateX(-50%); /* Offset to truly center */
+            z-index: 4; /* Ensure it's above the waves */
+            display: none; /* Initially hidden */
+        }
+
+        .search-box {
+            display: flex;
+            border: 2px solid #000000;
+            border-radius: 30px;
+            padding: 0%;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-box:hover {
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        #search-input,
+        #domain-input,
+        #phone-input {
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 20px; 
+            flex: 1;
+            font-size: 16px; 
+            transition: background-color 0.5s ease; 
+        }
+
+        #search-input:focus,
+        #domain-input:focus,
+        #phone-input:focus {
+            background-color: #eaf4ff;
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            background-color: #292a2b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center; 
+        }
+
+        button:hover {
+            background-color: #4b4e50;
+        }
+
+        button i {
+            margin-right: 5px; /* Space between icon and text */
+        }
+        .bottom-image {
+    position: absolute;
+    bottom: 30px;
+    right: 0px; 
+}
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 10px; /* Original size */
+            height: 10px; /* Original size */
+            background-color: #000000; /* Original color */
+            border-radius: 50%;
+            pointer-events: none; 
+            transform: translate(-50%, -50%);
+            z-index: 9999; 
+        }
+        .pretty-json {
+    background-color: #f8f8f8;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 10px;
+    white-space: pre-wrap; /* Preserve whitespace */
+    font-family: monospace; /* Use a monospace font */
+    overflow: auto; /* Add scrolling if content overflows */
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="animated-title">
+            <span>I</span><span>n</span><span>f</span><span>o</span>
+            <span class="">Alchemy</span>
+        </h1>
+        
+        <div class="navbar">
+            <h3 onclick="showSection('home')">Home</h3>
+            <h3 onclick="showSection('tools')">Tools</h3>
+            <h3 onclick="showSection('about')">About</h3>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="section home">
+            <div class="wave-top"></div> 
+            <div class="wave"></div> 
+            <div class="quote">If you're looking for an information-gathering tool, you’re in the right place.</div>
+            <div class="image">
+                <img src="WhatsApp-Image-2024-09-26-at-23.47.44.png" alt="The Home Page Image">
+            </div>
+        </div>
+        
+        <div class="section tools">
+            <div class="wave-top"></div> 
+            <div class="wave"></div> 
+            <img src="ip-address.png" alt="IP Address Tools" class="tools-logo ip-address" onclick="showSearch()">
+            <img src="world-wide-web_1935387.png" alt="Domain-Scan" class="tools-logo domain" onclick="showDomainSearch()">
+            <img src="telephone_14875580.png" alt="phone Scan" class="tools-logo phone" onclick="verifyPhoneNumber()">
+            
+            
+
+            <!-- IP Search Input Field -->
+            <div id="search-container">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Enter IP Address" />
+                    <button onclick="performSearch()">Search</button>
+                </div>
+            </div>
+
+            <!-- Domain Search Input Field -->
+            <div id="domain-search-container">
+                <div class="search-box">
+                    <input type="text" id="domain-input" placeholder="Enter Domain Name" />
+                    <button onclick="performDomainSearch()"><i class="fas fa-search"></i>Search</button>
+                </div>
+            </div>
+            <div id="results-container">
+                <!-- Results will be displayed here -->
+            </div>
+
+            <!-- Phone Search Input Field -->
+            <div id="phone-search-container">
+                <div class="search-box">
+                    <input type="text" id="phone-input" placeholder="Enter Phone Number" />
+                    <button onclick="verifyPhoneNumber()"><i class="fas fa-search"></i> Search</button>
+
+                </div>
+                <div id="results-container">
+                <!-- Results will be displayed here -->
+            </div>
+            </div>
+        </div>
+        
+        
+        <div class="section about">
+            <div class="wave-top"></div> 
+            <div class="wave"></div>
+            <h2>About Us</h2>
+            <div>
+                <img src="12ea4cf4a13a902adb8e8993b5e1c135.jpeg" class="photo bottom-image" alt="About Us Image"></div>
+            <h5>Welcome to InfoAlchemy, your trusted source for comprehensive online information gathering. Our mission is to empower users with the tools they need to uncover critical details about IP addresses, phone numbers, email addresses, and social media profiles, all in one convenient location.
+                
+                In today's digital age, having access to reliable information is essential. Whether you’re trying to verify a contact, track down an elusive social media profile, or conduct thorough research, we provide you with the resources to do so effectively and efficiently.
+                
+                What We Offer:
+                At Info Alchemy, we specialize in providing essential tools for online investigations while prioritizing user privacy and security. 
+                Our platform features an IP Address Lookup tool that reveals geographical locations and ISP details, enabling you to understand the context behind network activities. 
+                The Domain Scanner allows users to analyze domain ownership and hosting details, helping to identify potential security vulnerabilities. Additionally,
+                our Phone Number Search tool assists in identifying the owners of phone numbers for both personal verification and business inquiries. 
+                We are dedicated to delivering information ethically and responsibly, ensuring a safe and effective experience for all users
+                
+                Join us in harnessing the power of information. Explore our tools today and discover what you can uncover!.</h5>
+        </div>
+    </div>
+
+    <div class="custom-cursor" id="custom-cursor"></div>
+
+    <script>
+        function showSection(section) {
+            const content = document.querySelector('.content');
+            const sections = {
+                home: 0,
+                tools: -33, 
+                about: -67, 
+            };
+
+            content.style.transform = `translateX(${sections[section]}%)`;
+            
+            if (section === 'tools') {
+                document.getElementById('search-container').style.display = 'block';
+                document.getElementById('domain-search-container').style.display = 'block';
+                document.getElementById('phone-search-container').style.display = 'block'; 
+            } else {
+                document.getElementById('search-container').style.display = 'none';
+                document.getElementById('domain-search-container').style.display = 'none';
+                document.getElementById('phone-search-container').style.display = 'none';
+            }
+        }
+
+        function showSearch() {
+            document.getElementById('search-container').style.display = 'block'; 
+        }
+
+        function showDomainSearch() {
+            document.getElementById('domain-search-container').style.display = 'block'; 
+        }
+
+        function verifyPhoneNumber() {
+            document.getElementById('phone-search-container').style.display = 'block'; 
+        }
+
+        function performSearch() {
+            const searchInput = document.getElementById('search-input').value;
+            alert(`Searching for IP Address: ${searchInput}`);
+        }
+
+        function performDomainSearch() {
+            const domainInput = document.getElementById('domain-input').value;
+            alert(`Searching for Domain: ${domainInput}`);
+        }
+
+        function verifyPhoneNumber() {
+            const phoneInput = document.getElementById('phone-input').value;
+            alert(`Searching for Phone: ${phoneInput}`);
+        }
+
+        const cursor = document.getElementById('custom-cursor');
+        const shadow = document.createElement('div'); 
+        shadow.classList.add('custom-cursor');
+        shadow.style.opacity = '0.5'; 
+        document.body.appendChild(shadow); 
+
+        let cursorX = 0;
+        let cursorY = 0;
+        let shadowX = 0;
+        let shadowY = 0;
+        const shadowFollowSpeed = 0.2; 
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+        });
+
+        function updateShadow() {
+            shadowX += (cursorX - shadowX) * shadowFollowSpeed;
+            shadowY += (cursorY - shadowY) * shadowFollowSpeed;
+
+            shadow.style.left = `${shadowX}px`;
+            shadow.style.top = `${shadowY}px`;
+
+            requestAnimationFrame(updateShadow); 
+        }
+
+        updateShadow();
+        
+        document.addEventListener('DOMContentLoaded', function() {
+    // Ensure all buttons exist before adding event listeners
+    const ipButton = document.getElementById('ip-search-button');
+    const domainButton = document.getElementById('domain-search-button');
+    const phoneButton = document.getElementById('phone-input');
+
+    if (ipButton) {
+        ipButton.addEventListener('click', function() {
+            const ipInput = document.getElementById('ip-input').value;
+            if (ipInput) {
+                performSearch(ipInput);
+            
+            }
+        });
+    }
+
+    if (domainButton) {
+        domainButton.addEventListener('click', function() {
+            const domainInput = document.getElementById('domain-input').value;
+            if (domainInput) {
+                performDomainSearch(domainInput);
+            }
+        });
+    }
+
+    if (phoneButton) {
+        phoneButton.addEventListener('click', function() {
+            const phoneInput = document.getElementById('phone-input').value;
+            if (phoneInput) {
+                verifyPhoneNumber(phoneInput);
+            }
+        });
+    }
+    
+
+    // Show the search bar when logo is clicked
+    document.querySelector('.ip-logo').addEventListener('click', function() {
+        toggleSection('ip');
+    });
+
+    document.querySelector('.domain-logo').addEventListener('click', function() {
+        toggleSection('domain');
+    });
+
+    document.querySelector('.phone-logo').addEventListener('click', function() {
+        toggleSection('phone');
+    });
+});
+const express = require('express');  
+const app = express();  
+  
+app.post('/osint-data', (req, res) => {  
+  const ip = req.body.ip;  
+  // Perform OSINT data gathering logic here  
+  const data = { /* OSINT data */ };  
+  res.json(data);  
+});  
+  
+app.listen(8000, () => {  
+  console.log('Server listening on port 8000');  
+});
+
+function performSearch() {  
+    const ipInput = document.getElementById('search-input').value;  
+    fetch('http://localhost:8000/osint-data', {  
+        method: 'POST',  
+        headers: {  
+            'Content-Type': 'application/json'  
+        },  
+        body: JSON.stringify({ ip: ipInput })  
+    })  
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json(); // Changed to response.json()
+    })  
+    .then(data => {  
+        console.log(data); // Log the response data to the console  
+        displayResult(data); // Call the displayResult function with the response data  
+    })  
+    .catch(error => console.error('Error:', error));  
+}
+
+function performDomainSearch() {  
+    const domainInput = document.getElementById('domain-input').value;  
+    
+    // Fetch request to the backend
+    fetch(`http://localhost:8000/api/search/domain/${domainInput}`, {  
+        method: 'GET',  // Use GET without a body
+        headers: {  
+            'Content-Type': 'application/json'  
+        }  
+    })  
+    .then(response => {
+        // Check if the response is okay
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();  
+    })  
+    .then(data => {  
+        console.log(data); // Log the response data to the console  
+        displayResult(data); // Call the displayResult function with the response data  
+    }) 
+    .catch(error => console.error('Error:', error));  
+}
+function verifyPhoneNumber() {
+    const phoneNumberInput = document.getElementById('phone-input');
+    const resultsContainer = document.getElementById('results-container');
+
+    const phoneNumber = phoneNumberInput.value.trim(); // Trim whitespace
+
+    // Basic validation
+    if (!phoneNumber) {
+        resultsContainer.innerHTML = '<p>Please enter a phone number.</p>';
+        return;
+    }
+
+    // Show loading indicator
+    resultsContainer.innerHTML = '<p>Verifying...</p>';
+
+    // Construct the URL with the phone number as a query parameter
+    const url = `http://localhost:8000/api/verify-phone?phone_number=${encodeURIComponent(phoneNumber)}`;
+
+    return fetch(url, {
+        method: 'GET', // Use GET method
+        headers: {
+            'Content-Type': 'application/json' // This header may not be necessary for GET, but it's okay to keep it
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            const errorMessage = `Network response was not ok: ${response.status} ${response.statusText}`;
+            throw new Error(errorMessage);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Check if the response has a valid structure
+        if (data && typeof data.verified === 'boolean') {
+            if (data.verified) {
+                // Show additional information if verified
+                resultsContainer.innerHTML = `
+                    <p>Phone number is verified!</p>
+                    <p>Country: ${data.data.country_name || 'N/A'}</p>
+                    <p>Carrier: ${data.data.carrier || 'N/A'}</p>
+                    <p>Location: ${data.data.location || 'N/A'}</p>
+                `;
+            } else {
+                resultsContainer.innerHTML = '<p>Phone number verification failed. Please try again.</p>';
+            }
+        } else {
+            resultsContainer.innerHTML = '<p>Unexpected response format.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Error verifying phone number:', error);
+        
+        // Provide a more user-friendly message based on the error
+        let userMessage;
+        if (error.message.includes('404')) {
+            userMessage = '<p>Phone number not found. Please check the number and try again.</p>';
+        } else {
+            userMessage = `<p>An error occurred during verification: ${error.message}</p>`;
+        }
+        
+        resultsContainer.innerHTML = userMessage;
+    });
+}
+
+
+function displayResult(data) {
+    const resultsContainer = document.getElementById('results-container');
+    resultsContainer.innerHTML = ''; // Clear previous results
+
+    // Check if the data is an object
+    if (typeof data === 'object' && data !== null) {
+        if (data.type === "domain") {
+            // Create a card for the domain result
+            const resultCard = document.createElement('div');
+            resultCard.className = 'result-card';
+            resultCard.innerHTML = `
+                <h3>Domain Information</h3>
+                <p><strong>Domain:</strong> ${data.id}</p>
+                <p><strong>Registrar:</strong> ${data.registrar}</p>
+                <p><strong>Last Modification Date:</strong> ${new Date(data.last_modification_date * 1000).toLocaleString()}</p>
+                <p><strong>Total Votes:</strong> Harmless: ${data.attributes.total_votes.harmless}, Malicious: ${data.attributes.total_votes.malicious}</p>
+                <h4>Last HTTPS Certificate:</h4>
+                <pre class="pretty-json">${JSON.stringify(data.attributes.last_https_certificate, null, 2)}</pre>
+                <h4>Last Analysis Results:</h4>
+                <ul>
+                    ${Object.entries(data.last_analysis_results).map(([engine, result]) => `
+                        <li><strong>${engine}:</strong> ${result.result} (${result.category})</li>
+                    `).join('')}
+                </ul>
+            `;
+            resultsContainer.appendChild(resultCard);
+        } else {
+            // Handle other object data
+            Object.entries(data).forEach(([key, value]) => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+                resultItem.innerHTML = `<strong>${key}:</strong> ${JSON.stringify(value)}`;
+                resultsContainer.appendChild(resultItem);
+            });
+        }
+    } else {
+        // Handle simple data types (string, number, etc.)
+        resultsContainer.innerHTML = `<div class="result-item">${data}</div>`;
+    }
+}
+
+    </script>
+</body>
+</html>
